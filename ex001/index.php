@@ -14,11 +14,11 @@
             phpinfo()
         ?>
         <?php echo "supertag PHP" ?>
-        <? echo "short open tag" (nao funciona em alguns navegadores) ?>
+        <? echo "short open tag" ?>
         <% "ASP tag" (nao funciona em alguns navegadores) %>
         <?= "short tag PHP" ?>
         <script language="php"> 
-            echo "<p>outra forma de usar PHP (nao funciona em alguns navegadores)</p>"
+        //    echo "<p>outra forma de usar PHP (nao funciona em alguns navegadores)</p>"
         </script>
     </p>
     <p>Primeiro parágrafo de uma página com PHP.</p>
