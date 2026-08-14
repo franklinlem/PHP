@@ -1,76 +1,10 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#111827">
-<title>Minhas Tarefas | Franklin Martins</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-<div id="toast" class="toast hidden"></div>
-
-<section id="authView" class="auth-shell">
-  <div class="auth-card">
-    <p class="eyebrow">TAREFAS.FRANKLEM.COM</p>
-    <h1>Minhas Tarefas</h1>
-    <p class="muted">Suas tarefas sincronizadas no celular e computador.</p>
-    <div class="tabs">
-      <button class="tab active" data-auth-tab="login">Entrar</button>
-      <button class="tab" data-auth-tab="register">Criar conta</button>
-    </div>
-    <form id="loginForm">
-      <label>E-mail<input id="loginEmail" type="email" required autocomplete="email"></label>
-      <label>Senha<input id="loginPassword" type="password" required autocomplete="current-password"></label>
-      <button class="btn primary full">Entrar</button>
-    </form>
-    <form id="registerForm" class="hidden">
-      <label>Nome<input id="registerName" required maxlength="100" autocomplete="name"></label>
-      <label>E-mail<input id="registerEmail" type="email" required autocomplete="email"></label>
-      <label>Senha<input id="registerPassword" type="password" minlength="8" required autocomplete="new-password"></label>
-      <button class="btn primary full">Criar conta</button>
-    </form>
-  </div>
-</section>
-
-<div id="appView" class="app-shell hidden">
-<header class="topbar">
- <div><p class="eyebrow">ORGANIZAÇÃO PESSOAL</p><h1>Minhas Tarefas</h1><p id="welcome" class="muted"></p></div>
- <div class="header-actions"><button id="themeBtn" class="icon-btn">☾</button><button id="logoutBtn" class="btn ghost">Sair</button></div>
-</header>
-<main>
-<section class="stats">
- <article><strong id="totalCount">0</strong><span>Total</span></article>
- <article><strong id="pendingCount">0</strong><span>Pendentes</span></article>
- <article><strong id="doneCount">0</strong><span>Concluídas</span></article>
- <article><strong id="todayCount">0</strong><span>Para hoje</span></article>
-</section>
-
-<section class="panel">
-<h2 id="formTitle">Nova tarefa</h2>
-<form id="taskForm">
-<input id="taskId" type="hidden">
-<label>Tarefa *<input id="title" required maxlength="160" placeholder="Ex.: Revisar relatório"></label>
-<label>Descrição<textarea id="description" rows="3" placeholder="Detalhes opcionais"></textarea></label>
-<div class="grid">
-<label>Data<input id="dueDate" type="date"></label>
-<label>Prioridade<select id="priority"><option value="baixa">Baixa</option><option value="media" selected>Média</option><option value="alta">Alta</option></select></label>
-<label>Categoria<input id="category" maxlength="60" placeholder="Trabalho, pessoal..."></label>
-</div>
-<div class="form-actions"><button class="btn primary">Salvar tarefa</button><button id="cancelEdit" class="btn ghost hidden" type="button">Cancelar</button></div>
-</form>
-</section>
-
-<section class="panel toolbar">
-<input id="search" type="search" placeholder="Buscar tarefas...">
-<div class="filters">
-<button class="filter active" data-filter="all">Todas</button><button class="filter" data-filter="pending">Pendentes</button><button class="filter" data-filter="today">Hoje</button><button class="filter" data-filter="done">Concluídas</button>
-</div>
-<select id="sort"><option value="newest">Mais recentes</option><option value="due">Vencimento</option><option value="priority">Prioridade</option></select>
-</section>
-<div id="emptyState" class="empty hidden"><h2>Nenhuma tarefa encontrada</h2><p>Adicione uma tarefa ou altere os filtros.</p></div>
-<div id="taskList" class="task-list"></div>
-</main>
-<footer><a href="https://franklem.com" target="_blank" rel="noopener">Franklin Martins</a> · tarefas.franklem.com</footer>
-</div>
-<script src="app.js"></script>
-</body></html>
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Minhas Tarefas</title><link rel="stylesheet" href="style.css?v=4"></head><body>
+<button id="theme" class="theme">🌙 <span>Tema escuro</span></button><div id="msg" class="msg hide"></div>
+<section id="auth" class="center"><div class="card login"><small>TAREFAS.FRANKLEM.COM</small><h1>Minhas Tarefas</h1><p>Suas tarefas sincronizadas no celular e computador.</p><div class="tabs"><button class="tab on" data-tab="login">Entrar</button><button class="tab" data-tab="register">Criar conta</button></div><div id="error" class="error hide"></div>
+<form id="login"><label>E-mail<input id="le" type="email" required></label><label>Senha<input id="lp" type="password" required></label><button class="primary">Entrar</button><p class="hint">Primeiro acesso? Clique em <b>Criar conta</b>.</p></form>
+<form id="register" class="hide"><label>Nome<input id="rn" required></label><label>E-mail<input id="re" type="email" required></label><label>Senha<input id="rp" type="password" minlength="8" required></label><button class="primary">Criar minha conta</button></form><div id="health" class="health">Verificando MySQL...</div></div></section>
+<div id="app" class="wrap hide"><header><div><small>TAREFAS.FRANKLEM.COM</small><h1>Minhas Tarefas</h1><p id="welcome"></p></div><button id="logout" class="secondary">Sair</button></header>
+<section class="stats"><article><b id="total">0</b><span>Total</span></article><article><b id="pending">0</b><span>Pendentes</span></article><article><b id="done">0</b><span>Concluídas</span></article><article><b id="today">0</b><span>Hoje</span></article></section>
+<section class="card"><h2 id="ft">Nova tarefa</h2><form id="task"><input id="id" type="hidden"><label>Tarefa<input id="title" required></label><label>Descrição<textarea id="desc"></textarea></label><div class="grid"><label>Data<input id="date" type="date"></label><label>Prioridade<select id="priority"><option value="baixa">Baixa</option><option value="media" selected>Média</option><option value="alta">Alta</option></select></label><label>Categoria<input id="cat"></label></div><button class="primary">Salvar tarefa</button><button id="cancel" type="button" class="secondary hide">Cancelar</button></form></section>
+<section class="card tools"><input id="search" placeholder="Buscar tarefas..."><div><button class="filter on" data-f="all">Todas</button><button class="filter" data-f="pending">Pendentes</button><button class="filter" data-f="today">Hoje</button><button class="filter" data-f="done">Concluídas</button></div><select id="sort"><option value="new">Mais recentes</option><option value="due">Vencimento</option><option value="priority">Prioridade</option></select></section><div id="list"></div></div>
+<script src="app.js?v=4"></script></body></html>
