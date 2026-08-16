@@ -1,0 +1,6 @@
+.featured-figure{margin:10px 0 0}
+.featured-figure .featured-image{display:block;margin:0}
+.featured-caption{margin-top:7px;color:var(--muted);font-size:11px;font-style:italic;text-align:center}
+.single-post .entry-content>p{text-align:justify;text-justify:inter-word;hyphens:auto}
+.single-post .entry-content .sources-box p,.single-post .entry-content .sources-box li{text-align:left}
+@media(max-width:560px){.single-post .entry-content>p{text-align:left;hyphens:none}}
